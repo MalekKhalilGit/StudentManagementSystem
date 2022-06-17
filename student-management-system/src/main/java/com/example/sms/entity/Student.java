@@ -9,22 +9,28 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "firstName", nullable = false)
     private String firstName;
 
     @Column(name = "lastName", nullable = false)
     private String lastName;
+
     @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "klasse", nullable = false)
+    private String klasse;
 
     public Student() {
 
     }
 
-    public Student(String firstName, String lastName, String email) {
+    public Student(String firstName, String lastName, String email, String klasse) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.klasse = klasse;
     }
 
     public Long getId() {
@@ -57,5 +63,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getKlasse() {
+        return klasse;
+    }
+
+    public void setKlasse(String klasse) {
+        this.klasse = klasse;
     }
 }

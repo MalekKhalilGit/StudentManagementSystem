@@ -19,7 +19,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    //handle method to handle list student and return model and view
+    //handle method to handle list student and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model){
         model.addAttribute("students", studentService.getAllStudents());
@@ -27,7 +27,7 @@ public class StudentController {
     }
     @GetMapping("/students/new")
     public String createStudentForm(Model model){
-        Student student = new Student();        //create student obj to hold student data
+        Student student = new Student();        //create student obj to hold Student data
         model.addAttribute("student", student);
         return "create_student";
     }
@@ -51,6 +51,8 @@ public class StudentController {
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
+        existingStudent.setKlasse(student.getKlasse());
+
 
         //save updated student obj
         studentService.updateStudent(existingStudent);
