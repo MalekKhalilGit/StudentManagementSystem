@@ -11,6 +11,7 @@ public class StudentController {
     private StudentService studentService;
 
     public StudentController(StudentService studentService) {
+        super();
         this.studentService = studentService;
     }
 
