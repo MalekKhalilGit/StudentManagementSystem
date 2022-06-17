@@ -13,4 +13,6 @@ public interface StudentService {
 
     Student getStudentById(Long id);
 
+    void deleteStudentById(Long id);
+
 }
