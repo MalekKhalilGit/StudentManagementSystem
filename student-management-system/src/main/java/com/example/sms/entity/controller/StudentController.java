@@ -1,4 +1,4 @@
-package com.example.sms.controller;
+package com.example.sms.entity.controller;
 
 import com.example.sms.entity.Student;
 import com.example.sms.service.StudentService;
@@ -20,6 +20,13 @@ public class StudentController {
     }
 
     //handle method to handle list student and return mode and view
+
+    @GetMapping("/classes")
+    public String listClasses(Model model){
+        model.addAttribute("classes", studentService.getAllStudents());
+        return "students";
+    }
+
     @GetMapping("/students")
     public String listStudents(Model model){
         model.addAttribute("students", studentService.getAllStudents());
