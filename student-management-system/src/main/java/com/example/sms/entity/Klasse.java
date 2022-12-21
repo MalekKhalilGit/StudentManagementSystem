@@ -3,7 +3,7 @@ package com.example.sms.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "classes")
+@Table(name = "klassen")
 public class Klasse {
 
 
@@ -11,19 +11,31 @@ public class Klasse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name = "className", nullable = false)
-    private  String className;
+    @Column(name = "klasseName", nullable = false)
+    private  String klasseName;
 
-    @Column(name = "studentClassNumber", nullable = false)
-    private  int studentClassNumber;
+    @Column(name = "studentKlasseNumber", nullable = false)
+    private  int studentKlasseNumber;
+
+    @OneToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
     public Klasse() {
 
     }
 
-    public Klasse(String className, int studentClassNumber) {
-        this.className = className;
-        this.studentClassNumber = studentClassNumber;
+    public Klasse(String klassenName, int studentKlasseNumber) {
+        this.klasseName = klassenName;
+        this.studentKlasseNumber = studentKlasseNumber;
     }
 
     public Long getId() {
@@ -34,19 +46,19 @@ public class Klasse {
         Id = id;
     }
 
-    public String getClassName() {
-        return className;
+    public String getKlasseName() {
+        return klasseName;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setKlasseName(String klasseName) {
+        this.klasseName = klasseName;
     }
 
-    public int getStudentClassNumber() {
-        return studentClassNumber;
+    public int getStudentKlasseNumber() {
+        return studentKlasseNumber;
     }
 
-    public void setStudentClassNumber(int studentClassNumber) {
-        this.studentClassNumber = studentClassNumber;
+    public void setStudentKlasseNumber(int studentKlasseNumber) {
+        this.studentKlasseNumber = studentKlasseNumber;
     }
 }
