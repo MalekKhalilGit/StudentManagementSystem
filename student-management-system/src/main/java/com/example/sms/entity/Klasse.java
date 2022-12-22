@@ -33,10 +33,18 @@ public class Klasse {
 
     }
 
+
     public Klasse(String klassenName, int studentKlasseNumber) {
         this.klasseName = klassenName;
         this.studentKlasseNumber = studentKlasseNumber;
     }
+
+
+    public Klasse(String klassenName) {
+        this.klasseName = klassenName;
+        this.studentKlasseNumber = 0;
+    }
+
 
     public Long getId() {
         return Id;

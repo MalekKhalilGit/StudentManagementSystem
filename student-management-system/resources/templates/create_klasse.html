@@ -29,46 +29,20 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1> Schüler bearbeiten </h1>
+            <h1> Neue Klasse hinzufügen </h1>
             <div class="card-body">
-                <form th:action="@{/students/{id} (id=${student.id})}" th:object="${student}" method="POST">
+                <form th:action="@{/klassen}" th:object="${klasse}" method="POST">
 
                     <div class="form-group">
-                        <label> Vorname </label>
+                        <label> Klassen Name </label>
                         <input type="text"
-                               name="firstName"
-                               th:field="*{firstName}"
+                               name="klasseName"
+                               th:field="*{klasseName}"
                                class="form-control"
-                               placeholder="Bitte Vornamen eingeben"/>
+                               placeholder="Bitte Namen eingeben"/>
                     </div>
 
-                    <div class="form-group">
-                        <label> Nachname </label>
-                        <input type="text"
-                               name="lastName"
-                               th:field="*{lastName}"
-                               class="form-control"
-                               placeholder="Bitte Nachnamen eingeben"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Email </label>
-                        <input type="text"
-                               name="email"
-                               th:field="*{email}"
-                               class="form-control"
-                               placeholder="Bitte Email eingeben"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Klasse </label>
-                        <input type="text"
-                               name="klasse"
-                               th:field="*{klasse}"
-                               class="form-control"
-                               placeholder="Bitte Klasse eingeben"/>
-                    </div>
-                    <div class="footer-body">
+                    <div class="box-footer">
                         <button type="submit" class="btn btn-primary">
                             Submit
                         </button>

@@ -2,12 +2,14 @@ package com.example.sms.entity.controller;
 
 import com.example.sms.entity.Klasse;
 import com.example.sms.service.KlassenService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Controller
 public class KlassenController {
 
     private KlassenService klassenService;
@@ -17,9 +19,9 @@ public class KlassenController {
         this.klassenService = klassenService;
     }
 
-    @GetMapping("/classes")
+    @GetMapping("/klassen")
     public String listClasses(Model model){
-        model.addAttribute("classes", klassenService.getAllKlassen());
+        model.addAttribute("klassen", klassenService.getAllKlassen());
         return "klassen";
     }
 
@@ -36,29 +38,25 @@ public class KlassenController {
         return "redirect:/klassen";
     }
 
+
     @GetMapping("/klassen/edit/{id}")
     public String editKlassenForm(@PathVariable Long id, Model model){
         model.addAttribute("klasse", klassenService.getKlasseById(id));
         return "edit_klasse";
     }
 
-   /* @PostMapping("/klassen/{id}")
+    @PostMapping("/klassen/{id}")
     public String updateKlasse(@PathVariable Long id, @ModelAttribute("klasse") Klasse klasse, Model model){
-        //get Student form db by Id
-        Student existingStudent = studentService.getStudentById(id);
-        existingStudent.setId(id);
-        existingStudent.setFirstName(student.getFirstName());
-        existingStudent.setLastName(student.getLastName());
-        existingStudent.setEmail(student.getEmail());
-        existingStudent.setKlasse(student.getKlasse());
-
+        //get Klasse form db by Id
+        Klasse existingKlasse = klassenService.getKlasseById(id);
+        existingKlasse.setId(id);
+        existingKlasse.setStudentKlasseNumber(klasse.getStudentKlasseNumber());
+        existingKlasse.setKlasseName(klasse.getKlasseName());
 
         //save updated student obj
-        klassenService.updateKlassen(existingKlassen);
+        klassenService.updateKlasse(existingKlasse);
         return "redirect:/students";
     }
-
-    */
 
     //handler methode to handle delete request
     @GetMapping("/klasse/{id}")

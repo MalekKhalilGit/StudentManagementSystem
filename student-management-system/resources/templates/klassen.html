@@ -34,7 +34,7 @@
 
     <div class ="row">
         <div class="col-lg-3">
-            <a th:href = "@{/students/new}" class="btn btn-primary btn-sm mb-3"> Schüler hinzufügen</a>
+            <a th:href = "@{/klassen/new}" class="btn btn-primary btn-sm mb-3"> Klasse hinzufügen</a>
 
         </div>
     </div>
@@ -42,28 +42,26 @@
     <table class="table table-striped-bordered table-dark">
         <thead class="table-dark">
         <tr>
-            <th> Vorname</th>
-            <th> Nachname</th>
-            <th> Email</th>
             <th> Klasse</th>
+            <th> Schüler</th>
             <th> Aktionen</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="student: ${students}">
-            <td th:text="${student.firstName}"></td>
-            <td th:text="${student.lastName}"></td>
-            <td th:text="${student.email}"></td>
-            <td th:text="${student.klasse}"></td>
-            <td>
-                <a th:href = "@{/students/edit/{id}(id=${student.id})}"
-                   class="btn btn-primary">Bearbeiten</a>
 
-                <a th:href = "@{/students/{id}(id=${student.id})}"
+        <tr th:each="klasse: ${klassen}">
+            <td th:text="${klasse.klasseName}"></td>
+            <td>"99"</td>
+            <td>
+                <a th:href = "@{/klassen/edit/{id}(id=${klasse.id})}"
+                   class="btn btn-primary">Übersicht</a>
+
+                <a th:href = "@{/klassen/{id}(id=${klasse.id})}"
                    class="btn btn-danger">Löschen</a>
             </td>
         </tr>
+
         </tbody>
 
     </table>

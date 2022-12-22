@@ -18,14 +18,10 @@ public class KlassenServiceImpl implements KlassenService {
     }
 
     @Override
-    public List<Klasse> getAllKlassen() {
-        return klassenRepository.findAll();
-    }
+    public List<Klasse> getAllKlassen() {return klassenRepository.findAll();}
 
     @Override
-    public Klasse saveKlasse(Klasse klasse) {
-        return klassenRepository.save(klasse);
-    }
+    public Klasse saveKlasse(Klasse klasse) {return klassenRepository.save(klasse);}
 
     @Override
     public Klasse updateKlasse(Klasse klasse) {
@@ -38,7 +34,5 @@ public class KlassenServiceImpl implements KlassenService {
     }
 
     @Override
-    public void deleteKlasseById(Long id) {
-        klassenRepository.deleteById(id);
-    }
+    public void deleteKlasseById(Long id) {klassenRepository.deleteById(id);}
 }
