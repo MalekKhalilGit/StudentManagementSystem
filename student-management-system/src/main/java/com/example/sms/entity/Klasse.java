@@ -1,6 +1,8 @@
 package com.example.sms.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "klassen")
@@ -17,17 +19,6 @@ public class Klasse {
     @Column(name = "studentKlasseNumber", nullable = false)
     private  int studentKlasseNumber;
 
-    @OneToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
     public Klasse() {
 
@@ -39,6 +30,13 @@ public class Klasse {
         this.studentKlasseNumber = studentKlasseNumber;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
 
     public Klasse(String klassenName) {
         this.klasseName = klassenName;
