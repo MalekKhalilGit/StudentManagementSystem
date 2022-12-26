@@ -22,6 +22,7 @@ public class Student {
     @Column(name = "klasse", nullable = false)
     private String klasse;
 
+
     public Student() {
 
     }

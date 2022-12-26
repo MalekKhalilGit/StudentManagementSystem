@@ -54,10 +54,10 @@
             <td th:text="${klasse.klasseName}"></td>
             <td>"99"</td>
             <td>
-                <a th:href = "@{/klassen/edit/{id}(id=${klasse.id})}"
+                <a th:href = "@{/klassen/edit/{klassenId}(klassenId=${klasse.klassenId})}"
                    class="btn btn-primary">Übersicht</a>
 
-                <a th:href = "@{/klassen/{id}(id=${klasse.id})}"
+                <a th:href = "@{/klassen/{klassenId}(klassenId=${klasse.klassenId})}"
                    class="btn btn-danger">Löschen</a>
             </td>
         </tr>
