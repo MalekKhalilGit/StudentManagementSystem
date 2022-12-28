@@ -1,6 +1,8 @@
 package com.example.sms.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "klassen")
@@ -17,9 +19,7 @@ public class Klasse {
     @Column(name = "studentKlasseNumber", nullable = false)
     private  int studentKlasseNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "klasse")
-    private Student student;
+    private List<Student> studentList = new ArrayList<>();
 
     public Klasse() {
 
@@ -46,7 +46,7 @@ public class Klasse {
         klassenId = id;
     }
 
-    public String getKlasseName() {
+    public static String getKlasseName() {
         return klasseName;
     }
 
@@ -60,5 +60,13 @@ public class Klasse {
 
     public void setStudentKlasseNumber(int studentKlasseNumber) {
         this.studentKlasseNumber = studentKlasseNumber;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 }

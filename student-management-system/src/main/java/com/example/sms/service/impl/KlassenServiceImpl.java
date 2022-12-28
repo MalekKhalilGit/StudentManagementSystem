@@ -1,9 +1,11 @@
 package com.example.sms.service.impl;
 
 import com.example.sms.entity.Klasse;
+import com.example.sms.entity.Student;
 import com.example.sms.repository.KlassenRepository;
 import com.example.sms.service.KlassenService;
 import org.springframework.stereotype.Service;
+import java.util.stream.Collectors;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class KlassenServiceImpl implements KlassenService {
     @Override
     public List<Klasse> getAllKlassen() {return klassenRepository.findAll();}
 
+
     @Override
     public Klasse saveKlasse(Klasse klasse) {return klassenRepository.save(klasse);}
 
@@ -35,4 +38,14 @@ public class KlassenServiceImpl implements KlassenService {
 
     @Override
     public void deleteKlasseById(Long id) {klassenRepository.deleteById(id);}
+
+
+
+    @Override
+    public List<Student> getStudentsKlasse() {
+       List<Student>allStudentsList = StudentServiceImpl.studentRepository.findAll();
+       List<Student>klasseStudentsList = allStudentsList.stream().filter(student -> student.getKlasse()
+                .equals(Klasse.getKlasseName()).collect(Collectors.toList());
+       return klasseStudentsList;
+    }
 }

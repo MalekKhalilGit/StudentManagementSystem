@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    private StudentRepository studentRepository;
+    public static StudentRepository studentRepository;
 
     public StudentServiceImpl(StudentRepository studentRepository) {
         super();

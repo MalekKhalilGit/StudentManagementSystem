@@ -1,6 +1,7 @@
 package com.example.sms.service;
 
 import com.example.sms.entity.Klasse;
+import com.example.sms.entity.Student;
 
 import java.util.List;
 
@@ -15,5 +16,8 @@ public interface KlassenService {
     Klasse getKlasseById(Long id);
 
     void deleteKlasseById(Long id);
+
+    List<Student> getStudentsKlasse();
+
 
 }
