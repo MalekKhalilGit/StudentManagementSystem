@@ -1,12 +1,10 @@
 package com.example.sms.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "klassen")
-public class Klasse {
+public class Klasse{
 
 
     @Id
@@ -14,12 +12,10 @@ public class Klasse {
     private Long klassenId;
 
     @Column(name = "klasseName", nullable = false)
-    private  String klasseName;
+    private static String klasseName;
 
     @Column(name = "studentKlasseNumber", nullable = false)
     private  int studentKlasseNumber;
-
-    private List<Student> studentList = new ArrayList<>();
 
     public Klasse() {
 
@@ -37,6 +33,7 @@ public class Klasse {
         this.studentKlasseNumber = 0;
     }
 
+    public static String getKlasseName() { return klasseName; }
 
     public Long getKlassenId() {
         return klassenId;
@@ -44,10 +41,6 @@ public class Klasse {
 
     public void setId(Long id) {
         klassenId = id;
-    }
-
-    public static String getKlasseName() {
-        return klasseName;
     }
 
     public void setKlasseName(String klasseName) {
@@ -59,14 +52,5 @@ public class Klasse {
     }
 
     public void setStudentKlasseNumber(int studentKlasseNumber) {
-        this.studentKlasseNumber = studentKlasseNumber;
+        this.studentKlasseNumber = studentKlasseNumber;}
     }
-
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
-}
